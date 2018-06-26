@@ -1,6 +1,6 @@
 # NullAssociations
 
-Return null objects for your Rails' `belongs_to` and `has_one`.
+Return null objects for your Rails `belongs_to` and `has_one` associations.
 
 ## Installation
 

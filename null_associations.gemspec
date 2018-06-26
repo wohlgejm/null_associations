@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["wohlgejm@gmail.com"]
 
   spec.summary       = "Null belongs_to and has_one associations for Rails."
-  spec.description   = ""
+  spec.description   = "Return null objects for your Rails belongs_to and has_one associations"
   spec.homepage      = "https://github.com/wohlgejm/null_associations"
   spec.license       = "MIT"
 
