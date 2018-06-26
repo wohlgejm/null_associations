@@ -26,4 +26,20 @@ class NullAssociationsTest < Minitest::Test
     assert supplier.account.is_a?(NullAccount) == true
     assert supplier.account.null? == true
   end
+
+  def test_optional_false
+    assert_raises ArgumentError do
+      Account.class_eval do
+        belongs_to :supplier, optional: false, null_object: NullSupplier
+      end
+    end
+  end
+
+  def test_required_true
+    assert_raises ArgumentError do
+      Account.class_eval do
+        belongs_to :supplier, required: true, null_object: NullSupplier
+      end
+    end
+  end
 end
