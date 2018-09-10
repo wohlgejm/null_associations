@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class NullAssociationsTest < Minitest::Test
   def test_non_null_object_belongs_to
@@ -21,7 +21,7 @@ class NullAssociationsTest < Minitest::Test
     assert supplier.account.null? == false
   end
 
-  def test_null_object_belongs_to
+  def test_null_object_has_one
     supplier = Supplier.create!(name: 'test')
     assert supplier.account.is_a?(NullAccount) == true
     assert supplier.account.null? == true

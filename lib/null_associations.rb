@@ -1,10 +1,12 @@
-require "null_associations/version"
+# frozen_string_literal: true
+
+require 'null_associations/version'
 
 module NullAssociations
   extend ActiveSupport::Concern
 
   module ClassMethods
-    ASSOCIATIONS = %i(belongs_to has_one)
+    ASSOCIATIONS = %i[belongs_to has_one].freeze
 
     ASSOCIATIONS.each do |association|
       define_method(association) do |attribute, scope = nil, **options|
@@ -22,8 +24,8 @@ module NullAssociations
 
   class Options < OpenStruct
     ConfigError = ArgumentError.new('belongs_to_required_by_default is enabled in your config. This must be disabled to use null objects.')
-    RequiredError = ArgumentError.new('A null object cannot be defined when optional is false.')
-    OptionalError = ArgumentError.new('A null object cannot be defined when required is true.')
+    RequiredError = ArgumentError.new('A null object cannot be defined when required is true.')
+    OptionalError = ArgumentError.new('A null object cannot be defined when optional is false.')
 
     def initialize(**options)
       super
