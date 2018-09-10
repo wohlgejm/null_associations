@@ -1,5 +1,9 @@
 # NullAssociations
 
+[![Build Status](https://travis-ci.org/wohlgejm/null_associations.svg?branch=master)](https://travis-ci.org/wohlgejm/null_associations)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f44896d46cac05f9e470/maintainability)](https://codeclimate.com/github/wohlgejm/null_associations/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f44896d46cac05f9e470/test_coverage)](https://codeclimate.com/github/wohlgejm/null_associations/test_coverage)
+
 Return null objects for your Rails `belongs_to` and `has_one` associations.
 
 ## Installation
