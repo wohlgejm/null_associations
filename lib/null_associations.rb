@@ -23,8 +23,13 @@ module NullAssociations
   end
 
   class Options < OpenStruct
-    ConfigError = ArgumentError.new('belongs_to_required_by_default is enabled in your config. This must be disabled to use null objects.')
-    RequiredError = ArgumentError.new('A null object cannot be defined when required is true.')
+    ConfigError = ArgumentError.new(
+      'belongs_to_required_by_default is enabled in your config.'\
+      ' This must be disabled to use null objects.'
+    )
+    RequiredError = ArgumentError.new(
+      'A null object cannot be defined when required is true.'
+    )
     OptionalError = ArgumentError.new('A null object cannot be defined when optional is false.')
 
     def initialize(**options)
@@ -35,6 +40,7 @@ module NullAssociations
     def validate!
       raise RequiredError if optional_with_null_object?
       raise OptionalError if required_with_null_object?
+      raise ConfigError if config_with_null_object?
     end
 
     private

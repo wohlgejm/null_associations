@@ -27,6 +27,21 @@ class NullAssociationsTest < Minitest::Test
     assert supplier.account.null? == true
   end
 
+  def test_config_error
+    mock = Minitest::Mock.new
+    mock.expect(:config, mock)
+    mock.expect(:active_record, mock)
+    mock.expect(:belongs_to_required_by_default, true)
+
+    Rails::Application.stub(:new, mock) do
+      assert_raises ArgumentError do
+        Account.class_eval do
+          belongs_to :supplier, null_object: NullSupplier
+        end
+      end
+    end
+  end
+
   def test_optional_false
     assert_raises ArgumentError do
       Account.class_eval do
